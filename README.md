@@ -6,7 +6,7 @@ An auto-reply bot for ingress intel based on [ingrex_lib](https://github.com/bla
 
 1. try to run `login.py`, input your google account, until you see the content like below
 ```
-('Get cookie', 'SACSID=AAA...AAA;csrftoken=BBB...BBB;ingress.intelmap.shflt=viz;;ingress.intelmap.lat=0;;ingress.intelmap.lng=0;;ingress.intelmap.zoom=16;')
+('Get cookie', 'SACSID=AAA...AAA;csrftoken=BBB...BBB;ingress.intelmap.shflt=viz;ingress.intelmap.lat=0;ingress.intelmap.lng=0;ingress.intelmap.zoom=16')
 ```
 2. edit `bot.db` with sqlite3 to add your own rules
 3. run `bot.py` to start your bot
