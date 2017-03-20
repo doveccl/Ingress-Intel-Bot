@@ -18,6 +18,17 @@ def log(msg):
     '''
     print(msg.time + u' ' + msg.text)
 
+def unique(records):
+    '''
+    deduplication
+    '''
+    s, u = set(), list()
+    for item in records:
+        if not item[0] in s:
+            s.add(item[0])
+            u.append(item)
+    return u
+
 def setConfig(db, key, value):
     '''
     save config to database
@@ -96,7 +107,7 @@ def main():
     main function
     polling loop for intel
     '''
-    conn = sqlite3.connect('bot.db', timeout=10)
+    conn = sqlite3.connect('bot.db')
     cur = conn.cursor()
 
     while True:
@@ -109,6 +120,7 @@ def main():
         result = intel.fetch_msg(config['mints'])
 
         if result:
+            result = unique(result)
             mints = result[0][1] + 1
             setConfig(conn, 'mints', mints)
 
