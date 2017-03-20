@@ -71,7 +71,7 @@ def login(usr, pwd):
     ingress_headers.update({ 'cookie': 'SACSID={}'.format(SACSID) })
     _ = request.get(intel_url, headers=ingress_headers)
     csrftoken = dict_from_cookiejar(request.cookies)['csrftoken']
-    cookie = 'SACSID={};csrftoken={};'.format(SACSID, csrftoken)
+    cookie = 'SACSID={};csrftoken={}'.format(SACSID, csrftoken)
     cookie = '{};ingress.intelmap.shflt=viz;'.format(cookie)
     cookie = '{};ingress.intelmap.lat=0;'.format(cookie)
     cookie = '{};ingress.intelmap.lng=0;'.format(cookie)
