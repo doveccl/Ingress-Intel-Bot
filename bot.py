@@ -136,7 +136,10 @@ def main():
         for cmd in command:
             intel.send_msg(cmd[1], cmd[0])
 
-        time.sleep(config['interval'])
+        miniv = config['miniv']
+        maxiv = config['maxiv']
+        interval = random.randint(miniv, maxiv)
+        time.sleep(interval)
 
 if __name__ == '__main__':
     main()
